@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { ScriptBrowser } from "@/components/script-browser";
 import Image from "next/image";
 import placeholderImages from "@/lib/placeholder-images.json";
-import { Card } from "@/components/ui/card";
 import type { Script } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
