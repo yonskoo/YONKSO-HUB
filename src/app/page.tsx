@@ -26,6 +26,25 @@ const mainScript = {
   code: 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()',
 };
 
+const DiscordIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 4.162 2.536 7.73 6.138 9.14-1.21-1.353-1.34-4.032.102-5.422.34-.326.746-.57 1.18-.737-2.316-.27-4.723-1.12-4.723-5.114 0-1.13.404-2.053 1.067-2.776-.107-.272-.463-1.314.102-2.735 0 0 .875-.28 2.866 1.06.83-.23 1.72-.346 2.602-.35.882.004 1.773.12 2.602.35 1.99-1.34 2.865-1.06 2.865-1.06.565 1.42.21 2.463.102 2.735.663.723 1.066 1.646 1.066 2.776 0 3.994-2.407 4.844-4.723 5.114.434.167.84.41 1.18.737 1.442 1.39 1.312 4.07.102 5.422C19.464 19.73 22 16.162 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.162 2.536 7.73 6.138 9.14" />
+      <path d="M8.5 14.5s.5-1 1-1.5c-2-1.5-2.5-3-2.5-3s-1 2.5 0 4.5" />
+      <path d="M15.5 14.5s-.5-1-1-1.5c2-1.5 2.5-3 2.5-3s1 2.5 0 4.5" />
+    </svg>
+  );
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -98,20 +117,36 @@ export default function Home() {
       </div>
 
       <footer className="w-full max-w-lg space-y-4 pt-4">
-        <Button
-          asChild
-          variant="link"
-          className="w-full text-white/60 hover:text-primary transition-colors"
-        >
-          <Link
-            href="https://youtube.com/channel/UCyiSESnnGA6MSF2dWziW_pA?si=KTXFJ2wBSTeT6RON"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Button
+            asChild
+            variant="link"
+            className="w-full text-white/60 hover:text-primary transition-colors"
           >
-            <Youtube className="mr-2" />
-            YOUTUBE CHANNEL
-          </Link>
-        </Button>
+            <Link
+              href="https://youtube.com/channel/UCyiSESnnGA6MSF2dWziW_pA?si=KTXFJ2wBSTeT6RON"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Youtube className="mr-2" />
+              YOUTUBE CHANNEL
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="link"
+            className="w-full text-white/60 hover:text-primary transition-colors"
+          >
+            <Link
+              href="https://discord.gg/JMuBMcvrK6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DiscordIcon className="mr-2 h-5 w-5" />
+              DISCORD SERVER
+            </Link>
+          </Button>
+        </div>
         <div className="text-xs text-white/40 tracking-wider">
           V2.0.24 - PREMIUM EDITION
         </div>
