@@ -12,10 +12,7 @@ import {
 } from "@/components/ui/card";
 import { StarRating } from "@/components/star-rating";
 import { CodeBlock } from "@/components/code-block";
-import { User, Calendar, Tag, MessageSquare } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { ReviewForm } from "./review-form";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { User, Calendar, Tag } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const getAverageRating = (script: Script) => {
@@ -87,14 +84,6 @@ export default function ScriptDetailsPage() {
                     <Skeleton className="h-4 w-24" />
                 </CardContent>
             </Card>
-            <Card>
-                <CardHeader>
-                    <Skeleton className="h-6 w-1/3" />
-                </CardHeader>
-                <CardContent>
-                    <Skeleton className="h-40 w-full" />
-                </CardContent>
-            </Card>
           </div>
         </div>
       </div>
@@ -160,49 +149,6 @@ export default function ScriptDetailsPage() {
               <span className="text-sm text-muted-foreground">
                 from {script.ratings.length} reviews
               </span>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="font-headline text-xl flex items-center gap-2">
-                <MessageSquare className="w-5 h-5" />
-                Reviews
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ReviewForm scriptId={script.id} />
-              <Separator />
-              <div className="max-h-[400px] overflow-y-auto pr-2 space-y-4">
-                {script.ratings.length > 0 ? (
-                  script.ratings.map((review) => (
-                    <div key={review.id} className="flex gap-3 text-sm">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage
-                          src={review.userAvatar}
-                          alt={review.userId}
-                        />
-                        <AvatarFallback>
-                          {review.userId.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-semibold">{review.userId}</span>
-                          <StarRating rating={review.rating} size={14} />
-                        </div>
-                        <p className="text-muted-foreground">
-                          {review.comment}
-                        </p>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-sm text-muted-foreground text-center py-4">
-                    No reviews yet. Be the first!
-                  </p>
-                )}
-              </div>
             </CardContent>
           </Card>
         </div>
