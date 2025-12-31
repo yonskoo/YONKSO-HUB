@@ -56,7 +56,7 @@ export default function Home() {
           variant="link"
           className="w-full text-white/60 hover:text-primary transition-colors"
         >
-          <Link href="#">
+          <Link href="https://youtube.com/channel/UCyiSESnnGA6MSF2dWziW_pA?si=KTXFJ2wBSTeT6RON" target="_blank" rel="noopener noreferrer">
             <Youtube className="mr-2" />
             YOUTUBE CHANNEL
           </Link>
