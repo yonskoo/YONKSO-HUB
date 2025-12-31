@@ -150,6 +150,9 @@ export default function Home() {
         <div className="text-xs text-white/40 tracking-wider">
           V2.0.24 - PREMIUM EDITION
         </div>
+        <div className="text-xs text-white/40 tracking-wider">
+          © {new Date().getFullYear()} YONSKO. All Rights Reserved.
+        </div>
       </footer>
     </div>
   );
