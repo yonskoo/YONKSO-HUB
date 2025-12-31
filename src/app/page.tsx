@@ -1,17 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Youtube } from "lucide-react";
 import Link from "next/link";
+import { LoadingScreen } from "@/components/loading-screen";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
   const script = 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()';
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3500); 
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 text-center animate-fade-in">
       <header className="space-y-2">
-        <h1 className="text-7xl md:text-8xl font-display font-black tracking-wider text-white">
+        <h1 className="text-7xl md:text-8xl font-display font-black tracking-wider text-white glitch" data-text="YONSKO">
           YONSKO
         </h1>
         <p className="text-lg md:text-xl font-medium tracking-widest text-white/80">
