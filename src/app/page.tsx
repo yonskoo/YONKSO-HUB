@@ -3,13 +3,31 @@
 import { useState, useEffect } from "react";
 import { CopyButton } from "@/components/copy-button";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Youtube } from "lucide-react";
+import { Sparkles, Youtube, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { LoadingScreen } from "@/components/loading-screen";
 
+const mainScript = {
+  name: "Main Script",
+  features: [
+    "Inf Jump",
+    "No Clip",
+    "Fly",
+    "Fly Speed Slider",
+    "Walk Speed Slider",
+    "Jump Power Slider",
+    "Gravity Slider",
+    "Teleport to Player",
+    "Teleport to Cursor",
+    "ESP Players",
+    "ESP Color Picker",
+    "Aimbot",
+  ],
+  code: 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()',
+};
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const script = 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()';
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,20 +51,27 @@ export default function Home() {
         </p>
       </header>
 
-      <div className="w-full max-w-lg rounded-2xl border border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-4 green-glow-sm">
-        <h2 className="flex items-center justify-center gap-2 text-sm font-bold tracking-[0.2em] text-primary">
-          <Sparkles className="h-4 w-4" />
-          SCRIPT
-          <Sparkles className="h-4 w-4" />
-        </h2>
-        <div className="bg-black/50 rounded-lg p-4 text-left font-code text-white/90 relative">
-          <pre className="whitespace-pre-wrap break-all">{script}</pre>
+      <div className="w-full max-w-lg rounded-2xl border border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-6 green-glow-sm">
+        <div>
+          <h2 className="text-2xl font-bold tracking-widest text-white uppercase glitch" data-text={mainScript.name}>
+            {mainScript.name}
+          </h2>
         </div>
+        
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
+          {mainScript.features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2 text-sm text-white/90">
+              <CheckCircle className="h-4 w-4 text-primary shrink-0" />
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
+        
         <CopyButton
-          textToCopy={script}
+          textToCopy={mainScript.code}
           className="w-full h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-accent rounded-lg green-glow transition-all duration-300 transform hover:scale-105"
         >
-          COPY CODE
+          COPY SCRIPT
         </CopyButton>
       </div>
 

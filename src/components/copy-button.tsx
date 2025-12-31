@@ -33,6 +33,13 @@ export function CopyButton({ textToCopy, children, className, ...props }: CopyBu
     setHasCopied(true);
   };
 
+  const buttonContent = (
+    <>
+      {hasCopied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+      {children}
+    </>
+  );
+
   if (!children) {
     return (
        <TooltipProvider>
@@ -60,19 +67,23 @@ export function CopyButton({ textToCopy, children, className, ...props }: CopyBu
       </TooltipProvider>
     )
   }
-
+  
   return (
-    <Button
-      onClick={copyToClipboard}
-      className={cn("gap-2", className)}
-      {...props}
-    >
-      {hasCopied ? (
-        <Check className="h-4 w-4" />
-      ) : (
-        <Copy className="h-4 w-4" />
-      )}
-      {children}
-    </Button>
+    <TooltipProvider>
+      <Tooltip open={hasCopied}>
+        <TooltipTrigger asChild>
+          <Button
+            onClick={copyToClipboard}
+            className={cn("gap-2", className)}
+            {...props}
+          >
+            {buttonContent}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Copied to clipboard!</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 }
