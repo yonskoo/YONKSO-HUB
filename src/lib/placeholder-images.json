@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Abstract background of code and gaming elements",
+      "imageUrl": "https://images.unsplash.com/photo-1665142726875-f931a29dcee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2RlJTIwZ2FtaW5nfGVufDB8fHx8MTc2NzE4NzIwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code gaming"
+    }
+  ]
 }
