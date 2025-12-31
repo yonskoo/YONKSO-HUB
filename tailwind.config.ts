@@ -18,7 +18,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Roboto', 'sans-serif'],
-        headline: ['Open Sans', 'sans-serif'],
+        display: ['Orbitron', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

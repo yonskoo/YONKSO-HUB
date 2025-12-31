@@ -1,20 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { Check, Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
-interface CopyButtonProps {
+interface CopyButtonProps extends ButtonProps {
   textToCopy: string;
+  children?: ReactNode;
 }
 
-export function CopyButton({ textToCopy }: CopyButtonProps) {
+export function CopyButton({ textToCopy, children, className, ...props }: CopyButtonProps) {
   const [hasCopied, setHasCopied] = useState(false);
 
   useEffect(() => {
@@ -31,28 +33,46 @@ export function CopyButton({ textToCopy }: CopyButtonProps) {
     setHasCopied(true);
   };
 
+  if (!children) {
+    return (
+       <TooltipProvider>
+        <Tooltip open={hasCopied ? true : undefined}>
+          <TooltipTrigger asChild>
+            <Button
+              size="icon"
+              variant="ghost"
+              className={cn("h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-accent", className)}
+              onClick={copyToClipboard}
+              {...props}
+            >
+              {hasCopied ? (
+                <Check className="h-4 w-4 text-primary" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
+              <span className="sr-only">Copy code</span>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Copied!</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    )
+  }
+
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            size="icon"
-            variant="ghost"
-            className="absolute top-2 right-2 h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-accent"
-            onClick={copyToClipboard}
-          >
-            {hasCopied ? (
-              <Check className="h-4 w-4" />
-            ) : (
-              <Copy className="h-4 w-4" />
-            )}
-            <span className="sr-only">Copy code</span>
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{hasCopied ? "Copied!" : "Copy to clipboard"}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Button
+      onClick={copyToClipboard}
+      className={cn("gap-2", className)}
+      {...props}
+    >
+      {hasCopied ? (
+        <Check className="h-4 w-4" />
+      ) : (
+        <Copy className="h-4 w-4" />
+      )}
+      {children}
+    </Button>
   );
 }

@@ -1,34 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ScriptBrowser } from "@/components/script-browser";
-import type { Script } from "@/lib/types";
-import { defaultScript } from "@/lib/data";
+import { CopyButton } from "@/components/copy-button";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Youtube } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  const [userScripts, setUserScripts] = useState<Script[]>([defaultScript]);
-
-  useEffect(() => {
-    try {
-      const savedScripts = localStorage.getItem("userScripts");
-      if (savedScripts) {
-        const parsedScripts = JSON.parse(savedScripts);
-        const allScripts = [defaultScript, ...parsedScripts.filter((s: Script) => s.id !== defaultScript.id)];
-        setUserScripts(allScripts);
-      }
-    } catch (e) {
-      console.error("Could not load scripts from local storage", e);
-    }
-  }, []);
+  const script = 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()';
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl md:text-6xl font-bold font-headline text-primary">
-          yonsko hub
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-8 text-center">
+      <header className="space-y-2">
+        <h1 className="text-7xl md:text-8xl font-display font-black tracking-wider text-white">
+          YONSKO
         </h1>
+        <p className="text-lg md:text-xl font-medium tracking-widest text-white/80">
+          DIGITAL HUB
+        </p>
+      </header>
+
+      <div className="w-full max-w-lg rounded-2xl border border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-4 green-glow-sm">
+        <h2 className="flex items-center justify-center gap-2 text-sm font-bold tracking-[0.2em] text-primary">
+          <Sparkles className="h-4 w-4" />
+          SCRIPT
+          <Sparkles className="h-4 w-4" />
+        </h2>
+        <div className="bg-black/50 rounded-lg p-4 text-left font-code text-white/90 relative">
+          <pre className="whitespace-pre-wrap break-all">{script}</pre>
+        </div>
+        <CopyButton
+          textToCopy={script}
+          className="w-full h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-accent rounded-lg green-glow transition-all duration-300 transform hover:scale-105"
+        >
+          COPY CODE
+        </CopyButton>
       </div>
-      <ScriptBrowser scripts={userScripts} />
+
+      <footer className="w-full max-w-lg space-y-4 pt-4">
+        <Button
+          asChild
+          variant="link"
+          className="w-full text-white/60 hover:text-primary transition-colors"
+        >
+          <Link href="#">
+            <Youtube className="mr-2" />
+            YOUTUBE CHANNEL
+          </Link>
+        </Button>
+        <div className="text-xs text-white/40 tracking-wider">
+          V2.0.24 - PREMIUM EDITION
+        </div>
+      </footer>
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
-  title: "Roblox Script Hub",
-  description: "Discover, share, and rate the best Roblox scripts.",
+  title: "YONSKO",
+  description: "Yonsko Digital Hub",
 };
 
 export default function RootLayout({
@@ -14,17 +13,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&family=Roboto:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Roboto:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-background font-body antialiased">
-        <Header />
+      <body className="min-h-screen flex flex-col bg-background font-body antialiased relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-top bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,_hsl(var(--primary)/0.3),_transparent)] -z-10" />
         <main className="flex-grow">{children}</main>
         <Toaster />
       </body>
