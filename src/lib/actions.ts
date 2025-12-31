@@ -16,10 +16,20 @@ export async function publishScript(values: z.infer<typeof publishSchema>) {
   // Here, we're just logging and simulating success.
   console.log("New script submitted:", values);
 
-  // Revalidate the home page to show the new script (if data was persistent)
+  // This will no longer be enough as we are moving to client-side state
   revalidatePath("/");
 
-  return { success: "Script published successfully." };
+  // We return the new script data so the client can handle it
+  const newScript = {
+    id: values.title.toLowerCase().replace(/\s+/g, "-"),
+    author: "CurrentUser", // In a real app, this would come from auth
+    createdAt: new Date().toISOString(),
+    ratings: [],
+    ...values,
+    tags: values.tags.split(",").map((t) => t.trim()),
+  };
+
+  return { success: "Script published successfully.", script: newScript };
 }
 
 const reviewSchema = z.object({

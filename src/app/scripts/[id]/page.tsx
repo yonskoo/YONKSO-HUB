@@ -1,14 +1,22 @@
-import { notFound } from "next/navigation";
-import { scripts } from "@/lib/data";
+"use client";
+
+import { notFound, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import type { Script } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { StarRating } from "@/components/star-rating";
 import { CodeBlock } from "@/components/code-block";
 import { User, Calendar, Tag, MessageSquare } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { ReviewForm } from "./review-form";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const getAverageRating = (script: Script) => {
   if (script.ratings.length === 0) return 0;
@@ -16,12 +24,82 @@ const getAverageRating = (script: Script) => {
   return total / script.ratings.length;
 };
 
-export default function ScriptDetailsPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const script = scripts.find((s) => s.id === params.id);
+export default function ScriptDetailsPage() {
+  const params = useParams();
+  const { id } = params;
+  const [script, setScript] = useState<Script | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (typeof id !== "string") return;
+
+    try {
+      const savedScripts = localStorage.getItem("userScripts");
+      if (savedScripts) {
+        const allScripts: Script[] = JSON.parse(savedScripts);
+        const foundScript = allScripts.find((s) => s.id === id);
+        if (foundScript) {
+          setScript(foundScript);
+        } else {
+          setScript(null);
+        }
+      }
+    } catch (e) {
+      console.error("Failed to load script from local storage", e);
+    } finally {
+      setLoading(false);
+    }
+  }, [id]);
+
+  if (loading) {
+    return (
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-8">
+            <Card>
+              <CardHeader>
+                <Skeleton className="h-8 w-3/4" />
+                <Skeleton className="h-4 w-1/2" />
+              </CardHeader>
+              <CardContent>
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-full mt-2" />
+                <Skeleton className="h-4 w-2/3 mt-2" />
+              </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <Skeleton className="h-6 w-1/4" />
+                </CardHeader>
+                <CardContent>
+                    <Skeleton className="h-48 w-full" />
+                </CardContent>
+            </Card>
+          </div>
+          <div className="space-y-8">
+            <Card>
+                <CardHeader>
+                    <Skeleton className="h-6 w-1/4" />
+                </CardHeader>
+                <CardContent className="flex flex-col items-center gap-2">
+                    <Skeleton className="h-12 w-20" />
+                    <Skeleton className="h-6 w-32" />
+                    <Skeleton className="h-4 w-24" />
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <Skeleton className="h-6 w-1/3" />
+                </CardHeader>
+                <CardContent>
+                    <Skeleton className="h-40 w-full" />
+                </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!script) {
     notFound();
@@ -100,8 +178,13 @@ export default function ScriptDetailsPage({
                   script.ratings.map((review) => (
                     <div key={review.id} className="flex gap-3 text-sm">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={review.userAvatar} alt={review.userId} />
-                        <AvatarFallback>{review.userId.charAt(0)}</AvatarFallback>
+                        <AvatarImage
+                          src={review.userAvatar}
+                          alt={review.userId}
+                        />
+                        <AvatarFallback>
+                          {review.userId.charAt(0)}
+                        </AvatarFallback>
                       </Avatar>
                       <div className="flex-1">
                         <div className="flex justify-between items-center mb-1">

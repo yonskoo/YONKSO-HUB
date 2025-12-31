@@ -83,7 +83,20 @@ export function PublishForm() {
           description: result.error,
           variant: "destructive",
         });
-      } else {
+      } else if (result.success && result.script) {
+        // Save to local storage
+        try {
+          const existingScripts = JSON.parse(
+            localStorage.getItem("userScripts") || "[]"
+          );
+          localStorage.setItem(
+            "userScripts",
+            JSON.stringify([result.script, ...existingScripts])
+          );
+        } catch (e) {
+          console.error("Could not save script to local storage", e);
+        }
+
         toast({
           title: "Success!",
           description: "Your script has been published.",
