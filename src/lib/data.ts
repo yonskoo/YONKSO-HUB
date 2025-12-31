@@ -4,13 +4,13 @@ import type { Script } from "@/lib/types";
 export const categories = ["Utility", "Combat", "Fun", "Farming"] as const;
 
 export const defaultScript: Script = {
-  id: "super-speed-script",
-  title: "Super Speed Script",
-  description: "This script gives your character super speed! Run faster than anyone in the game. Easy to use, just execute and you are ready to go. Works in most games.",
+  id: "main-script",
+  title: "Main Script",
+  description: "Features: Inf jump, no clip, fly, fly speed slider, walk speed slider, jump power slider, gravity slider, teleport to selected player, teleport to mouse cursor location, esp players, esp color picker, aimbot.",
   code: 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()',
   author: "ScriptMaster",
   category: "Utility",
-  tags: ["speed", "fun", "utility"],
+  tags: ["inf jump", "noclip", "fly", "aimbot", "esp"],
   ratings: [
     {
       id: "1",
