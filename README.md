@@ -1,6 +1,5 @@
-git remote add origin https://github.com/killerboi12345678936-netizen/Yonsko-hub-.git
-# Firebase Studio
+# YONSKO HUB
 
-This is a NextJS starter in Firebase Studio.
+This is a NextJS starter created in Firebase Studio.
 
-To get started, take a look at src/app/page.tsx.
+To get started, take a look at `src/app/page.tsx`.
