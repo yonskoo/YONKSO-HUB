@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* New Script Table */}
+        {/* Trolling GUI Script Table */}
         <div className="w-full">
             <div className="w-full bg-card/80 backdrop-blur-sm border-primary/50 border-t border-x rounded-t-lg px-4 py-2">
                 <h2 className="text-lg font-bold text-primary tracking-widest">Trolling GUI</h2>
@@ -130,6 +130,19 @@ export default function Home() {
                 >
                 COPY SCRIPT
                 </CopyButton>
+            </div>
+        </div>
+
+        {/* Coming Soon Table */}
+        <div className="w-full">
+            <div className="w-full bg-card/80 backdrop-blur-sm border-primary/50 border-t border-x rounded-t-lg px-4 py-2">
+                <h2 className="text-lg font-bold text-primary tracking-widest">Coming Soon...</h2>
+            </div>
+            <div className="w-full rounded-b-2xl border-x border-b border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-6 green-glow-sm flex items-center justify-center">
+                <div className="flex items-center gap-2 text-lg text-white/60">
+                    <Hourglass className="h-6 w-6" />
+                    <span>New script on the way!</span>
+                </div>
             </div>
         </div>
       </div>
