@@ -12,6 +12,7 @@ const mainScript = {
   features: [
     "Inf Jump",
     "No Clip",
+    "Invisible (New)",
     "Fly",
     "Fly Speed Slider",
     "Walk Speed Slider",
@@ -23,12 +24,21 @@ const mainScript = {
     "ESP Color Picker",
     "Aimbot",
   ],
-  code: 'loadstring(game:HttpGet("https://pastebin.com/raw/FgdtsFbv"))()',
+  code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/yonskoo/yonsko-hub-main-script/refs/heads/main/main.lua"))()',
 };
 
 const trollingGui = {
     name: "Trolling GUI",
-    features: ["Trolls players"],
+    features: [
+      "Trolls Players",
+      "Admins Tab",
+      "Other Scripts GUI Tab",
+      "Main Trolls Tab",
+      "GENESIS Tab",
+      "N.O Bypass",
+      "Supported Games Tab",
+      "Bypass AC Tab",
+      "And Many More!!",
     code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/FE-Trolling-GUI/refs/heads/main/FE%20Trolling%20GUI'))()",
 };
 
