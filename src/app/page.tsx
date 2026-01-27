@@ -15,7 +15,7 @@ const mainScript = {
     "Invisible (New)",
     "Fly",
     "Fly Speed Slider",
-    "Walk Speed Slider",
+    "TPWalk Slider",
     "Jump Power Slider",
     "Gravity Slider",
     "Teleport to Player",
