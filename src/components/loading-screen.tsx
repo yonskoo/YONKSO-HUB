@@ -6,7 +6,9 @@ const loadingTexts = [
   "INITIALIZING YONSKO.HUB...",
   "CONNECTING TO MAINFRAME...",
 ];
-
+const logoRef = useRef(null);
+const containerRef = useRef(null);
+const [scale, setScale] = useState(1);
 export function LoadingScreen() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -39,21 +41,21 @@ export function LoadingScreen() {
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
-      <div className="font-code text-primary text-center p-4">
-      <div className="overflow-hidden">
-  <div className="w-full flex justify-center overflow-hidden">
+    <div
+  ref={containerRef}
+  className="w-full flex justify-center overflow-hidden"
+>
   <div
     style={{
-      transform: "scale(0.8) translateX(-7%)",
+      transform: `scale(${scale})`,
       transformOrigin: "center",
     }}
   >
     <pre
+      ref={logoRef}
       className="font-mono leading-none select-none text-center"
       style={{
         fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-        fontSize: "clamp(9px, 2.3vw, 16px)",
         lineHeight: "1",
       }}
     >
@@ -89,3 +91,21 @@ export function LoadingScreen() {
     </div>
   );
 }
+useEffect(() => {
+  function autoCenter() {
+    if (!logoRef.current || !containerRef.current) return;
+
+    const logoWidth = logoRef.current.scrollWidth;
+    const containerWidth = containerRef.current.clientWidth;
+
+    if (logoWidth > containerWidth) {
+      setScale(containerWidth / logoWidth);
+    } else {
+      setScale(1);
+    }
+  }
+
+  autoCenter();
+  window.addEventListener("resize", autoCenter);
+  return () => window.removeEventListener("resize", autoCenter);
+}, []);
