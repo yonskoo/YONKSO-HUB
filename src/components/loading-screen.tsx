@@ -41,7 +41,7 @@ export function LoadingScreen() {
   return (
     <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
       <div className="font-code text-primary text-center p-4">
-        <pre className="whitespace-pre-wrap text-sm sm:text-base">
+       <pre className="whitespace-pre font-mono leading-none select-none">
 {`
 ██╗   ██╗ ██████╗ ███╗   ██╗███████╗██╗  ██╗ ██████╗ 
 ╚██╗ ██╔╝██╔═══██╗████╗  ██║██╔════╝██║ ██╔╝██╔═████╗
