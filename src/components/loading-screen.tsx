@@ -49,14 +49,14 @@ export function LoadingScreen() {
       transformOrigin: "center",
     }}
   >
-  <pre
-    className="font-mono leading-none select-none text-center"
-    style={{
-      fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-      fontSize: "clamp(9px, 2.3vw, 16px)",
-      lineHeight: "1",
-    }}
-  >
+    <pre
+      className="font-mono leading-none select-none text-center"
+      style={{
+        fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+        fontSize: "clamp(9px, 2.3vw, 16px)",
+        lineHeight: "1",
+      }}
+    >
 {`
 ██╗   ██╗ ██████╗ ███╗   ██╗███████╗██╗  ██╗ ██████╗ 
 ╚██╗ ██╔╝██╔═══██╗████╗  ██║██╔════╝██║ ██╔╝██╔═████╗
@@ -65,7 +65,8 @@ export function LoadingScreen() {
    ██║   ╚██████╔╝██║ ╚████║███████║██║  ██╗╚██████╔╝
    ╚═╝    ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚═════╝ 
 `}
-  </pre>
+    </pre>
+  </div>
 </div>
 {`
 ██╗   ██╗ ██████╗ ███╗   ██╗███████╗██╗  ██╗ ██████╗ 
