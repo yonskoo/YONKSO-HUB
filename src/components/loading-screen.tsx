@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const loadingTexts = [
-  "INITIALIZING YONSKO.HUB_v2.0.24...",
+  "INITIALIZING YONSKO.HUB...",
   "CONNECTING TO MAINFRAME...",
   "BYPASSING SECURITY PROTOCOLS...",
   "DECRYPTING SCRIPT_DATA...",
