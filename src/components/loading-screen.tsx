@@ -45,7 +45,7 @@ export function LoadingScreen() {
   <div className="w-full flex justify-center overflow-hidden">
   <div
     style={{
-      transform: "scale(0.85) translateX(-6%)",
+      transform: "scale(0.8) translateX(-6%)",
       transformOrigin: "center",
     }}
   >
