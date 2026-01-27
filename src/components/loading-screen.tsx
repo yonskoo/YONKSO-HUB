@@ -42,11 +42,12 @@ export function LoadingScreen() {
     <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
       <div className="font-code text-primary text-center p-4">
       <div className="overflow-hidden">
+  <div className="w-full flex justify-center overflow-hidden">
   <pre
-    className="font-mono leading-none select-none"
+    className="font-mono leading-none select-none text-center"
     style={{
       fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-      fontSize: "clamp(10px, 2.5vw, 16px)",
+      fontSize: "clamp(9px, 2.3vw, 16px)",
       lineHeight: "1",
     }}
   >
