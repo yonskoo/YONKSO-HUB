@@ -5,10 +5,6 @@ import { useState, useEffect } from "react";
 const loadingTexts = [
   "INITIALIZING YONSKO.HUB...",
   "CONNECTING TO MAINFRAME...",
-  "BYPASSING SECURITY PROTOCOLS...",
-  "DECRYPTING SCRIPT_DATA...",
-  "ACCESSING DIGITAL REALM...",
-  "SYSTEMS ONLINE. WELCOME.",
 ];
 
 export function LoadingScreen() {
