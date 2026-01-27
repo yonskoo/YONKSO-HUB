@@ -43,6 +43,12 @@ export function LoadingScreen() {
       <div className="font-code text-primary text-center p-4">
       <div className="overflow-hidden">
   <div className="w-full flex justify-center overflow-hidden">
+  <div
+    style={{
+      transform: "scale(0.85)",
+      transformOrigin: "center",
+    }}
+  >
   <pre
     className="font-mono leading-none select-none text-center"
     style={{
