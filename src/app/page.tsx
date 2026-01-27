@@ -39,6 +39,7 @@ const trollingGui = {
       "Supported Games Tab",
       "Bypass AC Tab",
       "And Many More!!",
+   ],
     code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/FE-Trolling-GUI/refs/heads/main/FE%20Trolling%20GUI'))()",
 };
 
