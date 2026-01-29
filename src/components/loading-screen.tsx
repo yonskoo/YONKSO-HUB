@@ -102,21 +102,3 @@ export function LoadingScreen() {
     </div>
   );
 }
-useEffect(() => {
-  function autoCenter() {
-    if (!logoRef.current || !containerRef.current) return;
-
-    const logoWidth = logoRef.current.scrollWidth;
-    const containerWidth = containerRef.current.clientWidth;
-
-    if (logoWidth > containerWidth) {
-      setScale(containerWidth / logoWidth);
-    } else {
-      setScale(1);
-    }
-  }
-
-  autoCenter();
-  window.addEventListener("resize", autoCenter);
-  return () => window.removeEventListener("resize", autoCenter);
-}, []);
