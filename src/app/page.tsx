@@ -25,8 +25,7 @@ const mainScript = {
     "Aimbot",
     "And Many More!!",
   ],
-  code: 'code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/yonskoo/Nyxara-Legacy/main/main.lua"))()',
-',
+  code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/Nyxara-Legacy/refs/heads/main/main.lua'))()",
 };
 
 const trollingGui = {
