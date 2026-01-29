@@ -23,8 +23,9 @@ const mainScript = {
     "ESP Players",
     "ESP Color Picker",
     "Aimbot",
+    "And Many More!!",
   ],
-  code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/yonskoo/yonsko-hub-main-script/refs/heads/main/main.lua"))()',
+  code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/yonskoo/Nyxara-Legacy/refs/heads/main/main.lua"))()',
 };
 
 const trollingGui = {
