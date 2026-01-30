@@ -95,7 +95,7 @@ export default function Home() {
         {/* Main Script Table */}
         <div className="w-full">
           <div className="w-full bg-card/80 backdrop-blur-sm border-primary/50 border-t border-x rounded-t-lg px-4 py-2">
-             <h2 className="text-lg font-bold text-primary tracking-widest">Main Script</h2>
+             <h2 className="text-lg font-bold text-primary tracking-widest">Nyxara 💫</h2>
           </div>
           <div className="w-full rounded-b-2xl border-x border-b border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-6 green-glow-sm">
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
@@ -122,7 +122,7 @@ export default function Home() {
         {/* Trolling GUI Script Table */}
         <div className="w-full">
             <div className="w-full bg-card/80 backdrop-blur-sm border-primary/50 border-t border-x rounded-t-lg px-4 py-2">
-                <h2 className="text-lg font-bold text-primary tracking-widest">Trolling GUI</h2>
+                <h2 className="text-lg font-bold text-primary tracking-widest">FE Trolling GUI</h2>
             </div>
             <div className="w-full rounded-b-2xl border-x border-b border-primary/50 bg-card/80 backdrop-blur-sm p-6 space-y-6 green-glow-sm">
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
