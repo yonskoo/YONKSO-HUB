@@ -7,7 +7,7 @@ import { Youtube, CheckCircle, Hourglass } from "lucide-react";
 import Link from "next/link";
 import { LoadingScreen } from "@/components/loading-screen";
 
-const nyxara = {
+const mainScript = {
   name: "Nyxara",
   features: [
     "Inf Jump",
@@ -28,7 +28,7 @@ const nyxara = {
   code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/Nyxara-Legacy/refs/heads/main/main.lua'))()",
 };
 
-const fetrollingGui = {
+const trollingGui = {
     name: "FE Trolling GUI",
     features: [
       "Trolls Players",
