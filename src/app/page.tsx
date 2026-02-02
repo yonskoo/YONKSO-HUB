@@ -39,7 +39,7 @@ const trollingGui = {
       "N.O Bypass",
       "Supported Games Tab",
       "Bypass AC Tab",
-      "Bypass Lag Back (In most Games)",
+      "Bypass Lag Back (In Most Games)",
       "And Many More!!",
    ],
     code: "loadstring(game:HttpGet('https://raw.githubusercontent.com/yonskoo/FE-Trolling-GUI/refs/heads/main/FE%20Trolling%20GUI'))()",
