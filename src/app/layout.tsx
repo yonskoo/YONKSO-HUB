@@ -1,45 +1,60 @@
 import type { Metadata, Viewport } from "next";
-import { Orbitron, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const orbitron = Orbitron({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-orbitron",
-  display: "swap",
-});
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-roboto",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "YONSKO - AI Code Hub",
-    template: "%s | YONSKO"
+    default: "Yonsko Hub",
+    template: "%s | Yonsko Hub"
   },
-  description: "Yonsko Digital Hub - AI-powered code generation platform for Roblox scripts",
-  keywords: ["AI", "code generation", "Roblox", "scripts", "Nyxara", "FE Trolling GUI"],
+  description:
+    "Yonsko Hub — a simple place to copy Roblox scripts and execute them in-game. No downloads.",
+  keywords: [
+    "Roblox scripts",
+    "Roblox Lua",
+    "script hub",
+    "FE scripts",
+    "Roblox executor",
+    "Yonsko Hub"
+  ],
   authors: [{ name: "yonskoo" }],
   creator: "yonskoo",
   metadataBase: new URL("https://yonkso-hub.vercel.app"),
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://yonkso-hub.vercel.app",
-    siteName: "YONSKO HUB",
-    title: "YONSKO - AI Code Hub",
-    description: "AI-powered code generation platform for Roblox scripts",
+    siteName: "Yonsko Hub",
+    title: "Yonsko Hub",
+    description:
+      "Copy Roblox scripts instantly and run them in-game.",
+    images: [
+      {
+        url: "/embed.png",
+        width: 1200,
+        height: 630,
+        alt: "Yonsko Hub"
+      }
+    ]
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "YONSKO - AI Code Hub",
-    description: "AI-powered code generation platform for Roblox scripts",
+    title: "Yonsko Hub",
+    description:
+      "Copy Roblox scripts and execute them instantly.",
+    images: ["/embed.png"]
   },
+
   robots: {
     index: true,
     follow: true,
@@ -69,8 +84,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body 
-        className={`${orbitron.variable} ${roboto.variable} min-h-screen flex flex-col bg-background font-sans antialiased relative`}
+      <body
+        className={`${inter.variable} min-h-screen flex flex-col bg-background font-sans antialiased relative`}
       >
         <div className="absolute inset-0 w-full h-full bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:24px_24px] -z-20" />
         <div className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-top bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,_hsl(var(--primary)/0.3),_transparent)] -z-10" />
